@@ -1,9 +1,6 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+
 import './landing.css'
 import LoginButton from '@/components/loginButton/LoginButton'
-
-
 
 export default function Home() {
   return (

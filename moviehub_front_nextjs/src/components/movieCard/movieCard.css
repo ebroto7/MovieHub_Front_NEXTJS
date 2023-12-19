@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+
+.container {
+  width: 350px;
+  height: 450px;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  width: 180%;
+  height: 140%;
+  background-color: #423e5b;
+  opacity: 0.8;
+  transform: translate(100%, 100%) rotate(45deg);
+  transition: all 0.3s ease;
+}
+.container:hover::before {
+  transform: translate(-130px, -60px) rotate(45deg);
+}
+
+.container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  color: white;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 24px;
+  padding: 10px;
+  background-color: #1c1247;
+  opacity: 0.8;
+  text-transform: uppercase;
+  transform: translate(150px, -150px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+.container:hover .content h1 {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.content p {
+  font-size: 16px;
+  line-height: 1.1;
+  width: 80%;
+  align-self: center;
+  transform: translate(0, 100px);
+  opacity: 0;
+  transition: all 0.35s ease;
+}
+.container:hover .content p {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.content a {
+  text-decoration: none;
+  width: 40%;
+  padding: 10px 0;
+  background-color: #1c1247;
+  color: white;
+  text-transform: uppercase;
+  align-self: center;
+  opacity: 0;
+  transform: translate(-100px, 100px);
+  transition: all 0.35s ease;
+}
+.container:hover .content a {
+  opacity: 1;
+  transform: translate(0, 0);
+}

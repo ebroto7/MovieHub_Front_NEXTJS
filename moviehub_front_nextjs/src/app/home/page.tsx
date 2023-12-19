@@ -1,13 +1,16 @@
+import GenreCollectionButtons from '@/components/genreCollectionButtons/GenreCollectionButtons'
+import MovieCard from '@/components/movieCard/MovieCard'
 import React from 'react'
-import styles from './home.module.css'
-import './home.css'
 
 
 const HomePage = () => {
   return (
     <>
-    <button className='homeButton' >HOme</button>
-  </>  )
+      <h1 className='homeButton' >Home</h1>
+      <GenreCollectionButtons />
+      <MovieCard />
+    </>
+  )
 }
 
 export default HomePage

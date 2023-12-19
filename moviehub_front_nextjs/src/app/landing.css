@@ -47,7 +47,6 @@ body {
 }
 
 .content:before {
-	content: "BG IMAGES FROM UNSPLASH.COM";
 	font-family: Arial, Helvetica, serif;
 	bottom: 0vmin;
 	font-weight: 500;
