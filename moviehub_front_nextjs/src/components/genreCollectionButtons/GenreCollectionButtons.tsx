@@ -1,37 +1,37 @@
-'use client'
-import { useState } from 'react'
+import './genreMenuButton.css'
+
+
 import { GenreType } from '@/types/genre.interface'
+import Link from 'next/link'
+import { FaChevronRight } from "react-icons/fa";
 
-type Props = {}
 
-const genreList: GenreType[] = [
-    {
-        id: 1,
-        name: 'Sci-Fi',
-    },
-    {
-        id: 2,
-        name: 'Thriller',
-    },
-    {
-        id: 3,
-        name: 'Drama',
-    }
-]
+import { getAllGenres } from '@/lib/genreApi'
 
-const GenreCollectionButtons = (props: Props) => {
 
-    const [genres, setGenres] = useState<GenreType[]>(genreList)
+
+const GenreCollectionButtons = async () => {
+
+    const genres: GenreType[] = await getAllGenres()
 
     return (
         <>
             <h2>genres</h2>
-            {genres
-                ? genres.map((genre) => (
-                    <h3 key={genre.id} >{genre.name}</h3>
-                ))
-                : <p>not genres downloaded</p>
-            }
+            <ul style={{ display: 'flex', flexDirection: 'column' }}>
+                {genres
+                    ? genres.map(({ id, name }) => (
+                        
+                        <li key={id} className='btn'>
+                            <span className='circle'>
+                                <i className='chevron'><FaChevronRight /></i>
+                            </span>
+                            <Link key={id} href={`home/genre/${id}`} className='text'>{name}</Link>
+                        </li>
+                    ))
+                    : <p>not genres downloaded</p>
+                }
+            </ul>
+
         </>
     )
 }

@@ -4,9 +4,7 @@ import './loginButton.css'
 
 import { useRouter } from 'next/navigation'
 
-type Props = {}
-
-const LoginButton = (props: Props) => {
+const LoginButton = () => {
   const router = useRouter()
 
     const handleLogin = () => {
@@ -18,7 +16,7 @@ const LoginButton = (props: Props) => {
 
   return (
     <div>
-        <button className='button'  onClick={handleLogin}>Login</button>
+        <button className='button' onClick={handleLogin}>Login</button>
     </div>
   )
 }

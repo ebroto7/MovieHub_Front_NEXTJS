@@ -1,4 +1,9 @@
 .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1rem;
     height: 10vh;
     background-color: antiquewhite;
 }
@@ -10,16 +15,26 @@
 
 .aside {
     width: 20%;
-    min-width: 150px;
+    min-width: 200px;
     background-color:aquamarine;
 }
 
 .section {
-    width: 80%;
-    background-color: lightskyblue;
+    display: flex;
+    flex-wrap: wrap;
+   
+    justify-content: space-around;
+
+    overflow-y: scroll;
+
 }
 
 .footer {
     height: 10vh;
     background-color: antiquewhite;
+}
+
+
+.genreTitle {
+    background-color: red;
 }

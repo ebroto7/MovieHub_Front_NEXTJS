@@ -1,8 +1,10 @@
 
 import './landing.css'
 import LoginButton from '@/components/loginButton/LoginButton'
+import Image from 'next/image'
+import logo from '../assets/movieShareLogo.png'
 
-export default function Home() {
+export default function landing() {
   return (
     <>
       <input type="checkbox" id="invert" /><label htmlFor="invert"></label>
@@ -14,7 +16,12 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <LoginButton />
+      <div className='verticalContainer'>
+        <Image className='logo' src={logo} alt="me" width="300" height="100" priority={true} />
+        <LoginButton />
+      </div>
+
+
     </>
   )
 }

@@ -1,16 +1,32 @@
-import GenreCollectionButtons from '@/components/genreCollectionButtons/GenreCollectionButtons'
+
 import MovieCard from '@/components/movieCard/MovieCard'
 import React from 'react'
 
+import styles from './home.module.css'
+import GenreCollectionButtons from '@/components/genreCollectionButtons/GenreCollectionButtons'
+import { getAllMoviesIds } from '@/lib/movieApi'
+import { MovieId } from '@/types/movie.interface'
 
-const HomePage = () => {
+
+const HomePage = async () => {
+
+  const movieIds: MovieId[] = await getAllMoviesIds()
+
   return (
     <>
-      <h1 className='homeButton' >Home</h1>
-      <GenreCollectionButtons />
-      <MovieCard />
+      <main className={styles.main}>
+        <aside className={styles.aside}>SideBar
+          <GenreCollectionButtons />
+
+        </aside>
+        <section className={styles.section}>
+          {movieIds.map(({ id }, index) => (
+            <MovieCard key={index} movieId={id} />
+          ))}
+        </section>
+      </main>
+
     </>
   )
 }
-
 export default HomePage

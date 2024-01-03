@@ -19,3 +19,7 @@ export interface MovieType {
     createdAt?: Date,
     updatedAt?: Date
 }
+
+export interface MovieId {
+    id: string
+  }
