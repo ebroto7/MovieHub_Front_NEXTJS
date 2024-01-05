@@ -12,3 +12,14 @@
 .infoContainer h4 {
     padding: 0.2rem;
 }
+
+.background {
+    z-Index: -1;
+
+}
+hr.rounded {
+    margin: 0.5rem;
+    border-top: 2px solid #bbb;
+    border-radius: 1px;
+    filter: blur(2px);
+  }

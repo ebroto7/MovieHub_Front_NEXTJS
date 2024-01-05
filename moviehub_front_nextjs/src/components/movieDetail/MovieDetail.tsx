@@ -1,20 +1,18 @@
 import './movieDetail.css'
 
-
 import React, { FC } from 'react'
 import Image from 'next/image'
 
 import { MovieType } from '@/types/movie.interface'
 
-import { FaStar } from "react-icons/fa6";
 import { GenreType } from '@/types/genre.interface';
 import { getGenreById } from '@/lib/genreApi';
+import Rating from '@mui/material/Rating';
 
 
 type Props = {
     movie: MovieType
 }
-
 
 const MovieDetail: FC<Props> = async ({ movie }) => {
     const { title, description, genreId, director, stars, year, poster, duration, rated, userId } = movie
@@ -24,20 +22,32 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
 
     return (
         <main>
-            {/* {poster && <Image alt={title} src={poster} />}  */}
+            {/* {poster && <Image
+                alt={title}
+                src={poster}
+                fill
+                style={{
+                    objectFit: 'cover', // cover, contain, none
+                }}
+            />} */}
+
             <article>
                 <div className='inlineContainer'>
                     {poster && <Image
                         src={poster}
                         alt={title}
-                        width={150}
-                        height={200}
+                        width={300}
+                        height={400}
                     />
                     }
                     <section className='infoContainer'>
-                        {year && <h4>Year: {year} </h4>}
-                        {genre.name && <h4>Genre: {genre.name} </h4>}
-                        {rated && <h4>rated: {rated} <FaStar /></h4>}
+                        <div className='inlineContainer'>
+                            {year && <h4>{year}  </h4>}
+                            {duration && <h4>{duration} min </h4>}
+                            {<h4>{114} min </h4>}
+                        </div>
+                        {genre.name && <h4>{genre.name} </h4>}
+                        <Rating name="half-rating-read" value={rated} precision={0.5} readOnly />
                         {<div>
                             <h4>Director</h4>
                             <p>Denzel Washington</p>
@@ -55,6 +65,7 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
                         </div>} */}
                     </section>
                 </div>
+                <hr className="rounded" />
                 <p>{description}</p>
             </article>
         </main>

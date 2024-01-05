@@ -10,22 +10,18 @@ const MovieDetailPage = async ({ params }: { params: { movieId: string } }) => {
    const { movieId } = params
    const movie: MovieType = await getMovieById(movieId)
 
-   console.log("movidetail id: ", movieId)
-   console.log("movidetail: ", movie)
-
    return (
       <main className={styles.verticalContainer}>
-         <h1 className={styles.glass}> {movie.title} ={'>'} detail page</h1>
+         <h1 className={styles.movieTitle}> {movie.title} </h1>
          <div className={styles.inlineCointainer}>
-            <article className={`${styles.main}, ${styles.glass}`}>
+            <article className={`${styles.articleContainer}, ${styles.glass}`}>
                <MovieDetail movie={movie} />
             </article >
-            <section className={`${styles.main}, ${styles.glass}`}>
+            <article className={`${styles.articleContainer}, ${styles.glass}`}>
                Movie coments
-            </section>
+            </article>
          </div>
       </main>
-
    )
 }
 
