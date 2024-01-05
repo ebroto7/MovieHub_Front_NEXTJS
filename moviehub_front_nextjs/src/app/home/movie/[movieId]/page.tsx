@@ -4,6 +4,7 @@ import { getMovieById } from '@/lib/movieApi'
 
 import styles from '../../home.module.css'
 import MovieDetail from '@/components/movieDetail/MovieDetail'
+import CommentsContainer from '@/components/commentsContainer/commentsContainer'
 
 const MovieDetailPage = async ({ params }: { params: { movieId: string } }) => {
 
@@ -19,6 +20,7 @@ const MovieDetailPage = async ({ params }: { params: { movieId: string } }) => {
             </article >
             <article className={`${styles.articleContainer}, ${styles.glass}`}>
                Movie coments
+               <CommentsContainer movie={movie}/>
             </article>
          </div>
       </main>
