@@ -1,3 +1,8 @@
+.background {
+    background: url('../../assets/wallpapers/noom-peerapong-2uwFEAGUm6E-unsplash.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
 
 .main {
     display: flex;
@@ -7,13 +12,20 @@
 .aside {
     width: 20%;
     min-width: 200px;
-    background-color:aquamarine;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 1rem;
+    box-shadow: 10px 10px 10px 4px rgba(0,0,0,0.6);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
 }
 
 .section {
     display: flex;
     flex-wrap: wrap;
-   
+    padding: 0.5rem;
+
     justify-content: space-around;
 
     overflow-y: scroll;

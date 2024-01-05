@@ -2,14 +2,19 @@
 
 
 .movieCardContainer {
-  width: 350px;
+  width: 23%;
+  min-width: 350px;
   height: 450px;
   border-radius: 10px;
   position: relative;
   overflow: hidden;
   margin: 0.5rem;
-  background: rgb(161, 152, 14);
-  background: radial-gradient(circle, rgba(256, 256, 256, 1) 0%, rgba(161, 152, 14, 1) 100%);
+
+  background-color: rgba(128, 131, 113, 0.35);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  box-shadow: 10px 10px 10px 4px rgba(0,0,0,0.6);
+
 }
 
 .movieCardContainer::before {

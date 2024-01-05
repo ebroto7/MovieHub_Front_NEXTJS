@@ -2,11 +2,15 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
+
+
 import logo from '../../assets/movieShareLogo.png'
 import './header.css'
 import { FaUser } from "react-icons/fa";
 import { RiLogoutCircleLine } from "react-icons/ri";
 import { BsExclamationCircle } from "react-icons/bs";
+
+
 
 type MenuItem = {
   name: string,

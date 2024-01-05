@@ -65,7 +65,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	background: url(https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib&auto=format&fit=crop&w=1800&q=80) no-repeat center center;
-	background: url(https://source.unsplash.com/random/800x600/?mountain) no-repeat center center;
+	background: url('../assets/wallpapers//noom-peerapong-2uwFEAGUm6E-unsplash.jpg') no-repeat center center;
 	background-size: cover;
 	transition: var(--trsn);
 }
