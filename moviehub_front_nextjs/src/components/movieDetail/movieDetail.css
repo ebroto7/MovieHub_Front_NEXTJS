@@ -1,0 +1,14 @@
+.inlineContainer {
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+}
+
+.infoContainer {
+    margin: 1rem;
+
+}
+
+.infoContainer h4 {
+    padding: 0.2rem;
+}

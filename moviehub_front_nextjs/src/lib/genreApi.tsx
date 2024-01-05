@@ -14,3 +14,17 @@ export const getAllGenres = async () => {
 
 
 }
+
+
+export const getGenreById = async (id: string | number) => {
+
+    const genresUrl: string = `${baseAPIUrl}/genre/${id}`
+    try {
+        return fetch(genresUrl)
+            .then(Response => Response.json())
+    } catch (error) {
+        console.log(error)
+    }
+
+
+}
