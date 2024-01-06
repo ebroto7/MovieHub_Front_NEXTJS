@@ -20,7 +20,7 @@ const MovieDetailPage = async ({ params }: { params: { movieId: string } }) => {
             </article >
             <article className={`${styles.articleContainer}, ${styles.glass}`}>
                Movie coments
-               <CommentsContainer movie={movie}/>
+               <CommentsContainer movie={movie.id}/>
             </article>
          </div>
       </main>

@@ -11,9 +11,6 @@ const GenreDetail = async ({ params }: { params: { genreId: string } }) => {
   const { genreId } = params
   const genre: GenreType = await getMoviesByGenre(genreId)
 
-  console.log("movidetail id: ", genreId)
-  console.log("genreMovies: ", genre.movies)
-
   return (
     <main className={styles.section}>
       <h3 className={styles.genreTitle}>{genre.name} Movies</h3>

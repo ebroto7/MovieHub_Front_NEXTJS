@@ -16,7 +16,6 @@ const MovieCard: FC<Props> = async ({ movieId }) => {
     const baseUrl = process.env.BASE_LOCALHOST_URL
 
     const movie: MovieType = await getMovieById(movieId)
-    console.log("movie data fetched ", movieId)
 
     return (
         <>

@@ -1,5 +1,7 @@
+import { CommentType } from "./comments.interface"
+
 export interface MovieType {
-    id?: number | string,
+    id: number | string,
     title: string,
     description: string,
 
@@ -12,7 +14,7 @@ export interface MovieType {
 
     rated?: number,
 
-    comments?: string[]
+    comments?: CommentType[]
 
     userId: string | number
 

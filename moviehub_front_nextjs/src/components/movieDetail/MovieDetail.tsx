@@ -32,7 +32,7 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
             />} */}
 
             <article>
-                <div className='inlineContainer'>
+                <div className='inlineContainer glass'>
                     {poster && <Image
                         src={poster}
                         alt={title}
@@ -40,14 +40,14 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
                         height={400}
                     />
                     }
-                    <section className='infoContainer'>
+                    <section className='infoContainer glass'>
                         <div className='inlineContainer'>
                             {year && <h4>{year}  </h4>}
                             {duration && <h4>{duration} min </h4>}
                             {<h4>{114} min </h4>}
                         </div>
                         {genre.name && <h4>{genre.name} </h4>}
-                        <Rating name="half-rating-read" value={rated} precision={0.5} readOnly />
+                        <Rating name="half-rating-read" value={Number(rated)} precision={0.5} readOnly />
                         {<div>
                             <h4>Director</h4>
                             <p>Denzel Washington</p>
@@ -66,7 +66,7 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
                     </section>
                 </div>
                 <hr className="rounded" />
-                <p>{description}</p>
+                <p className='glass' >{description}</p>
             </article>
         </main>
     )

@@ -26,3 +26,53 @@
     align-items: center;
     width: 100%;
 }
+
+.rightText {
+    text-align: right;
+}
+
+/* .addCommentButton {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    align-items: center;
+    color: black;
+    background-color: transparent;
+    text-align: center;
+} */
+.commentsList {
+    list-style: none;
+    width: 100%;
+}
+
+.addCommentButton {
+    background-color: #ffffff00;
+    color: #fff;
+    width: 150px;
+    height: 2.9em;
+    border: rgba(161, 152, 14, 1) 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.6s ease;
+  }
+  
+  .addCommentButton:hover {
+    background-color: rgba(161, 152, 14, 1);
+    cursor: pointer;
+  }
+  
+  .addCommentButton svg {
+    width: 1.6em;
+    margin: -0.2em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.6s ease;
+  }
+  
+  .addCommentButton:hover svg {
+    transform: translateX(5px);
+  }
+  
+  .text {
+    margin: 0 1.5em
+  }
