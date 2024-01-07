@@ -21,7 +21,7 @@ const CommentsContainer: FC<Props> = async ({ movie }) => {
         <div className='verticalContainer'>
             <CreateCommentModal movie={movie} />
 
-            <ul>
+            <ul className='commentsList'>
                 {comments && comments?.map((comment) => (
                     <li key={comment.id}>
                         <CommentCard comment={comment} />

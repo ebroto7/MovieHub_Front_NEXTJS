@@ -45,8 +45,13 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
     const [title, setTitle] = useState<string>("")
     const [comment, setComent] = useState<string>("")
     const [rating, setRating] = useState<number>(0);
-    const [isValidForm, setIsValidForm] = useState<boolean>(false)
-    const [isValidMessage, setIsValidMessage] = useState<string>("")
+
+    const [isValidTitle, setIsValidTitle] = useState<boolean>(false)
+    const [isValidTitleMessage, setIsValidTitleMessage] = useState<string>("")
+
+    const [isValidComment, setIsValidComment] = useState<boolean>(false)
+    const [isValidCommentMessage, setIsValidCommentMessage] = useState<string>("")
+
 
     useEffect(() => {
         validateForm()
@@ -60,7 +65,7 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
         setOpen(false);
     };
     const HandleSubmit = () => {
-        if (isValidForm) {
+        if (isValidTitle && isValidComment) {
             const newComment: CommentType = {
 
                 movieId: movie,
@@ -78,19 +83,22 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
 
     const validateForm = () => {
 
-        let message: string = "Please check required fields. "
-
-        let validate = true
         if (title.length < 3) {
-            validate = false
-            message = message + "The movie title must be more than 3 characters. "
+            setIsValidTitleMessage("The title must be more than 3 characters.")
+            setIsValidTitle(false)
+        } else {
+            setIsValidTitle(true)
+
         }
         if (comment.length < 3) {
-            validate = false
-            message = message + "The movie description must be more than 3 characters. "
+            setIsValidCommentMessage("Your comment must be more than 3 characters.")
+            setIsValidComment(false)
+        } else {
+            setIsValidComment(true)
+
         }
-        setIsValidMessage(message)
-        setIsValidForm(validate)
+        console.log("title", isValidTitle)
+        console.log("comment", isValidComment)
     }
 
     return (
@@ -99,12 +107,15 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
                 <FaArrowRight className="icon" />
                 <p className="text"> add comment </p>
             </button>
-            <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+            <Dialog 
+                    open={open} 
+                    fullWidth={true}
+                    maxWidth={'sm'}
+                    onClose={handleClose}>
+                <DialogTitle>MOVIE TITLE*</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
+                        Do you want to give us your opinion?
                     </DialogContentText>
                     <TextField
                         required
@@ -118,6 +129,8 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
                         onChange={ev => { (ev.target.value != "") && setTitle(ev.target.value) }}
 
                     />
+                    {!isValidTitle && <h6 className='errorMessage'>{isValidTitleMessage}</h6>}
+
                     <TextField
                         required
                         autoFocus
@@ -127,9 +140,13 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
                         type="text"
                         fullWidth
                         variant="standard"
+                        multiline
+                        maxRows={4}
                         onChange={ev => { (ev.target.value != "") && setComent(ev.target.value) }}
 
                     />
+                    {!isValidComment && <h6 className='errorMessage'>{isValidCommentMessage}</h6>}
+
                     <div className='formRating'>
                         <Rating
                             name="simple-controlled"
@@ -144,11 +161,11 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
-                    {isValidForm
+                    {(isValidTitle && isValidComment)
                         ? <Button onClick={HandleSubmit} variant="outlined" startIcon={<FaCloudUploadAlt />}>Post</Button>
                         : <Button disabled>Post</Button>}
                 </DialogActions>
-                {!isValidForm && <p>{isValidMessage}</p>}
+                {/* {!isValidForm && <p className='errorMessage'>{isValidMessage}</p>} */}
 
             </Dialog>
         </>
