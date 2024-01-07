@@ -9,6 +9,7 @@ import CreateCommentModal from './CreateCommentModal'
 
 import { useCommentsContext } from '@/context/commentsContext'
 import { MovieType } from '@/types/movie.interface'
+import Loader from '../Loader/Loader'
 
 
 
@@ -66,7 +67,7 @@ const CommentsContainer: FC<Props> = ({ movie }) => {
 
             <ul className='commentsList'>
                 {isLoading ? 
-                    <h2>Loading...</h2>
+                    <Loader />
                 : commentsList && commentsList.toReversed().map((comment) => (
                     <li key={comment.id}>
                         <CommentCard comment={comment} />

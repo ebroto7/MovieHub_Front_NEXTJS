@@ -1,5 +1,5 @@
 .background {
-    background: url('../../assets/wallpapers/noom-peerapong-2uwFEAGUm6E-unsplash.jpg') no-repeat fixed center;
+    background: url('../../assets/wallpapers/2-cinema-wallpapers.jpg') no-repeat fixed center;
     background-size: cover;
 }
 
@@ -94,3 +94,17 @@
     flex: 1 1;
 
 }
+
+.customLoader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    transition: 0.5s;
+  }
+  
