@@ -25,6 +25,8 @@
 
     align-items: center;
     width: 100%;
+
+  overflow-y: scroll;    
 }
 
 .rightText {
@@ -46,6 +48,7 @@
 }
 
 .addCommentButton {
+ 
     background-color: #ffffff00;
     color: #fff;
     width: 150px;
@@ -63,7 +66,8 @@
   
   .addCommentButton svg {
     width: 1.6em;
-    margin: -0.2em 0.8em 1em;
+    margin-left: 1em;
+    /* margin: -0.2em 0.8em 1em; */
     position: absolute;
     display: flex;
     transition: all 0.6s ease;
@@ -74,5 +78,12 @@
   }
   
   .text {
-    margin: 0 1.5em
+    margin-right: 1.5em;
+  }
+
+
+  .formRating {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
   }

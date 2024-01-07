@@ -1,14 +1,17 @@
-import { MovieType } from '@/types/movie.interface'
 import React, { FC } from 'react'
+import './comments.styles.css'
 
 import CommentCard from './CommentCard'
-import AddCommentButton from './AddCommentButton'
 import { CommentType } from '@/types/comments.interface'
 import { getCommentsByMovieId } from '@/lib/commentsApi'
+import CreateCommentModal from './CreateCommentModal'
+
 
 type Props = {
     movie: number | string
 }
+
+
 
 const CommentsContainer: FC<Props> = async ({ movie }) => {
 
@@ -16,7 +19,7 @@ const CommentsContainer: FC<Props> = async ({ movie }) => {
   
     return (
         <div className='verticalContainer'>
-            <AddCommentButton />
+            <CreateCommentModal movie={movie} />
 
             <ul>
                 {comments && comments?.map((comment) => (
@@ -26,6 +29,7 @@ const CommentsContainer: FC<Props> = async ({ movie }) => {
                 ))}
             </ul>
         </div>
+
     )
 }
 export default CommentsContainer

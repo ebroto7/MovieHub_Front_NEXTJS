@@ -11,8 +11,6 @@ export const getAllGenres = async () => {
     } catch (error) {
         console.log(error)
     }
-
-
 }
 
 
@@ -25,6 +23,4 @@ export const getGenreById = async (id: string | number) => {
     } catch (error) {
         console.log(error)
     }
-
-
 }

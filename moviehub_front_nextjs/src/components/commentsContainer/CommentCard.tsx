@@ -12,21 +12,9 @@ type Props = {
 }
 
 
-const newComment: CommentType = {
-    id: 1,
-    movieID: 2,
-    title: 'Not bad',
-    description: 'this movie can be better',
-    ratting: 3.5,
-    createdAt: new Date(),
-    userId: 7
-}
-
-
 const CommentCard: FC<Props> = async ({ comment }) => {
 
-     const { title, description, ratting, createdAt, userId } = comment
-    // const { title, description, ratting, createdAt, userId } = newComment
+    const { title, description, ratting, createdAt, userId } = comment
 
     const user: UserType = await getUserById(userId)
 
