@@ -14,14 +14,16 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { FaArrowRight } from 'react-icons/fa';
 import { FaCloudUploadAlt } from "react-icons/fa";
 
+import { useCommentsContext } from '@/context/commentsContext';
 import { CommentType } from '@/types/comments.interface';
 
-import { postNewComment } from '@/lib/commentsApi';
+// import { postNewComment } from '@/lib/commentsApi';
 import { getMovieById } from '@/lib/movieApi';
 import { MovieType } from '@/types/movie.interface';
 
 type Props = {
-    movie: number | string
+    movie: number | string,
+    movieTitle: string
 }
 
 
@@ -35,11 +37,13 @@ type Props = {
 // }
 
 
-const CreateCommentModal: FC<Props> = ({ movie }) => {
+const CreateCommentModal: FC<Props> = ({ movie, movieTitle }) => {
     // para conseguir la info de la pelicula y poner el titulo en el modal
     // useEffect(() => {
     //     const movieInfo: MovieType = await getMovieById(movie)
     // }, [])
+
+    const {postNewComment} = useCommentsContext()
 
     const [open, setOpen] = useState(false);
     const [title, setTitle] = useState<string>("")
@@ -76,7 +80,6 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
             }
 
             postNewComment(newComment)
-            console.log("add comment open menu", (newComment))
             setOpen(false)
         }
     };
@@ -97,8 +100,7 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
             setIsValidComment(true)
 
         }
-        console.log("title", isValidTitle)
-        console.log("comment", isValidComment)
+
     }
 
     return (
@@ -112,7 +114,7 @@ const CreateCommentModal: FC<Props> = ({ movie }) => {
                     fullWidth={true}
                     maxWidth={'sm'}
                     onClose={handleClose}>
-                <DialogTitle>MOVIE TITLE*</DialogTitle>
+                <DialogTitle>*** {movieTitle} ***</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
                         Do you want to give us your opinion?

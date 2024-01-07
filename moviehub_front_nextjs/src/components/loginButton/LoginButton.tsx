@@ -10,7 +10,6 @@ const LoginButton = () => {
     const handleLogin = () => {
       router.push('/home')
       
-
         console.log("login button pressed")
     }
 

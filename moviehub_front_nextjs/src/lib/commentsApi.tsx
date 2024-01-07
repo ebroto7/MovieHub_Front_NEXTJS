@@ -6,10 +6,18 @@ const axios = require('axios');
 
 
 
+
 export const getCommentsByMovieId = async (id: string | number) => {
     const url: string = `${baseAPIUrl}/comment/${id}`
 
     try {
+
+      // const response = await axios.get(url)
+      // const comments: CommentType[] = response.data
+      // console.log(comments)
+
+      // return comments
+
         return fetch(url)
             .then(Response => Response.json())
     } catch (error) {

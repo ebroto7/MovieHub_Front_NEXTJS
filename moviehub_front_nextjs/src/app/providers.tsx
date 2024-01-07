@@ -1,10 +1,10 @@
-// import {NextUIProvider} from '@nextui-org/react'
+import { CommentsProvider } from "@/context/commentsContext"
 
 
-export function Providers({children}: { children: React.ReactNode }) {
+export function Providers({ children }: { children: React.ReactNode }) {
     return (
-    //   <NextUIProvider>
-        {children}
-    //  </NextUIProvider>
+        <CommentsProvider>
+            {children}
+        </CommentsProvider>
     )
-  }
+}
