@@ -12,11 +12,12 @@ type Props = {
 }
 
 
-const CommentCard: FC<Props> = async ({ comment }) => {
+// const CommentCard: FC<Props> = async ({ comment }) => {
+const CommentCard: FC<Props> =  ({ comment }) => {
 
     const { title, description, ratting, createdAt, userId } = comment
 
-    const user: UserType = await getUserById(userId)
+    // const user: UserType = await getUserById(userId)
 
     return (
         <article className='glass'>
@@ -28,7 +29,7 @@ const CommentCard: FC<Props> = async ({ comment }) => {
                 </div>
                 <div className='rightText'>
                     {createdAt && <p> {formatDate(createdAt)} </p>}
-                    {user && <p> {user.name}</p>}
+                    {/* {user && <p> {user.name}</p>} */}
                 </div>
 
             </section>

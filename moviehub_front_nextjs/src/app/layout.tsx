@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
+
+import { CommentsProvider } from "@/context/commentsContext"
+
+
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,10 +18,14 @@ export default function MainLayout({
   children: React.ReactNode
 }) {
   return (
+
     <html lang="en">
-      <body className={inter.className}>
+      <CommentsProvider>
+        <body className={inter.className}>
           {children}
-      </body>
+        </body>
+      </CommentsProvider>
+
     </html>
   )
 }

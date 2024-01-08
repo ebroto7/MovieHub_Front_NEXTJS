@@ -9,6 +9,7 @@ import { BsExclamationCircle } from "react-icons/bs";
 import { IoMdHome } from "react-icons/io";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from 'next/link';
+import styles from '../../app/home/home.module.css'
 
 
 type MenuItem = {
@@ -25,9 +26,9 @@ const menuItems: MenuItem[] = [
         href: `/home/user/${userId}`
     },
     {
-        name: "Logout",
-        icon: <RiLogoutCircleLine />,
-        href: `/`
+        name: "About us",
+        icon: <BsExclamationCircle />,
+        href: `/home/AboutUs`
     },
     {
         name: "Home",
@@ -35,9 +36,9 @@ const menuItems: MenuItem[] = [
         href: `/home`
     },
     {
-        name: "About us",
-        icon: <BsExclamationCircle />,
-        href: `/home/AboutUs`
+        name: "Logout",
+        icon: <RiLogoutCircleLine />,
+        href: `/`
     }
 ]
 
@@ -54,8 +55,9 @@ export default function BurguerMenuLinks() {
     };
 
     return (
-        <div>
+        <div className={styles.burguerMenuContainer}>
             <Button
+            className={styles.burguerMenuIcon}
                 id="basic-button"
                 aria-controls={open ? 'basic-menu' : undefined}
                 aria-haspopup="true"
@@ -73,26 +75,11 @@ export default function BurguerMenuLinks() {
                     'aria-labelledby': 'basic-button',
                 }}
             >
-                {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem> */}
-
-                {menuItems.map(({ name, icon, href }) => (
-                    <MenuItem onClick={handleClose}>
+                {menuItems.map(({ name, icon, href }, index) => (
+                    <MenuItem key={index} onClick={handleClose}>
                         <Link href={href}> {icon} {name} </Link>
                     </MenuItem>
-
-
-
                 ))}
-
-                {/* <ul>
-                    {menuItems.map(({ name, icon, href }) => (
-                        <li>
-                            <Link href={href}> {icon} {name} </Link>
-                        </li>
-                    ))}
-                </ul> */}
             </Menu>
         </div>
     );

@@ -1,3 +1,4 @@
+'use client'
 import { CommentType } from "@/types/comments.interface";
 import { FC, PropsWithChildren, createContext, useContext, useState } from "react";
 
@@ -9,44 +10,55 @@ const baseAPIUrl = process.env.BASE_API_URL
 type commentsContextProps = {
     commentsList: CommentType[],
     getCommentsByMovieId: (id: string | number) => void,
-    postNewComment: (comment: CommentType ) => void
+    postNewComment: (comment: CommentType ) => void,
 
+    isError: boolean
 }
 
 export const commentsContext = createContext<commentsContextProps>({
     commentsList: [],
     getCommentsByMovieId:  () => { },
-    postNewComment: () => {}
+    postNewComment: () => {},
 
+    isError: false
 })
 
 const CommentsProvider: FC<PropsWithChildren> = ({children}) => {
 
-const newComment: CommentType = {
+// const newComment: CommentType = {
 
-    movieId: 1,
-    title: 'goood movie',
-    description: 'I very Like',
-    ratting: 3.5,
-    userId: 7
-}
+//     movieId: 1,
+//     title: 'goood movie',
+//     description: 'I very Like',
+//     ratting: 3.5,
+//     userId: 7
+// }
 
     const [commentsList, setCommentsList] = useState<CommentType[]>([])
+    const [isError, setIsError] = useState<boolean>(false)
 
     const getCommentsByMovieId = async (id: string | number) => {
         const url: string = `${baseAPIUrl}/comment/${id}`
-        console.log("comments context getCommentsByMovieId >>>> START with id:",id)
+
+        console.log("url  ",url)
+
 
         try {
             const response = await axios.get(url)
             const comments: CommentType[] = response.data
-            console.log("comments context getCommentsByMovieId ",comments)
-            
-            setCommentsList(comments)
+            console.log("1-comments list  ",commentsList)
+
+            if (commentsList !== comments) {
+                setCommentsList([...comments])
+
+                console.log("1-comments context  ",comments)
+                console.log("2-comments list  ",commentsList)
+
+            }
 
         } catch (error) {
-            console.log("comments context getCommentsByMovieId >>>>>>> ERROR")
-            console.error(error)
+            console.error("getCommentsByMovieId error",error)
+            setIsError(true)
         }
     
     }
@@ -62,8 +74,6 @@ const newComment: CommentType = {
             ratting: ratting,
             movieId: movieId
         }
-    
-        console.log("postNewComment api call ", data)
     
         try {
             const response = await axios.post(url, data);
@@ -86,7 +96,7 @@ const newComment: CommentType = {
 
     return (
         <commentsContext.Provider
-            value={{ commentsList, getCommentsByMovieId, postNewComment }}
+            value={{ commentsList, getCommentsByMovieId, postNewComment, isError }}
         >
             {children}
         </commentsContext.Provider>

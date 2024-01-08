@@ -1,3 +1,4 @@
+'use client'
 import { CommentsProvider } from "@/context/commentsContext"
 
 
