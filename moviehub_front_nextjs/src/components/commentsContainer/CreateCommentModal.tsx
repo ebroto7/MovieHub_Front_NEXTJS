@@ -12,7 +12,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 import { FaArrowRight } from 'react-icons/fa';
-import { FaCloudUploadAlt } from "react-icons/fa";
+import { IoIosSend } from "react-icons/io";
 
 import { useCommentsContext } from '@/context/commentsContext';
 import { CommentType } from '@/types/comments.interface';
@@ -91,14 +91,12 @@ const CreateCommentModal: FC<Props> = ({ movie, movieTitle }) => {
             setIsValidTitle(false)
         } else {
             setIsValidTitle(true)
-
         }
         if (comment.length < 3) {
             setIsValidCommentMessage("Your comment must be more than 3 characters.")
             setIsValidComment(false)
         } else {
             setIsValidComment(true)
-
         }
 
     }
@@ -164,7 +162,7 @@ const CreateCommentModal: FC<Props> = ({ movie, movieTitle }) => {
                 <DialogActions>
                     <Button onClick={handleClose}>Cancel</Button>
                     {(isValidTitle && isValidComment)
-                        ? <Button onClick={HandleSubmit} variant="outlined" startIcon={<FaCloudUploadAlt />}>Post</Button>
+                        ? <Button onClick={HandleSubmit} variant="outlined" endIcon={<IoIosSend />}>Post</Button>
                         : <Button disabled>Post</Button>}
                 </DialogActions>
                 {/* {!isValidForm && <p className='errorMessage'>{isValidMessage}</p>} */}

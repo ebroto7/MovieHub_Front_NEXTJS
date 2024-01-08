@@ -23,7 +23,7 @@ const menuItems: MenuItem[] = [
     {
         name: "User",
         icon: <FaUser />,
-        href: `/home/user/${userId}`
+        href: `/home/user`
     },
     {
         name: "About us",

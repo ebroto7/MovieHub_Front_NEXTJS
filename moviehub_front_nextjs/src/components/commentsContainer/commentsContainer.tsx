@@ -42,20 +42,16 @@ const CommentsContainer: FC<Props> = ({ movie }) => {
             <ul className='commentsList'>
                 {isLoading ?
                     <Loader />
-                    : 
-                        (isError)
-                            ? <h2> download error</h2>
-            :
-                            commentsList && commentsList.toReversed().map((comment) => (
-            <li key={comment.id}>
-                <CommentCard comment={comment} />
-            </li>
-                    
-                    
-                    
-                  
-                    ))}
-        </ul>
+                    :
+                    (isError)
+                        ? <h2> download error</h2>
+                        :
+                        commentsList && commentsList.toReversed().map((comment) => (
+                            <li key={comment.id}>
+                                <CommentCard comment={comment} />
+                            </li>
+                        ))}
+            </ul>
         </div >
 
     )
