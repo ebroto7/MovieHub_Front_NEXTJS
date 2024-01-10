@@ -24,7 +24,7 @@ const CommentsContainer: FC<Props> = ({ movie }) => {
         setLoading(true);
         const loadData = async () => {
             try {
-                getCommentsByMovieId(movie.id)
+                { movie.id && getCommentsByMovieId(movie.id) }
             } catch (error) {
                 console.log(">>>>", error);
             }
@@ -37,8 +37,7 @@ const CommentsContainer: FC<Props> = ({ movie }) => {
 
     return (
         <div className='verticalContainer'>
-            <CreateCommentModal movie={movie.id} movieTitle={movie.title} />
-
+            {movie.id && <CreateCommentModal movie={movie.id} movieTitle={movie.title} />}
             <ul className='commentsList'>
                 {isLoading ?
                     <Loader />
