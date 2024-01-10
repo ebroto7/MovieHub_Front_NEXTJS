@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 import { CommentsProvider } from "@/context/commentsContext"
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 
 import { Inter } from 'next/font/google'
@@ -20,11 +21,14 @@ export default function MainLayout({
   return (
 
     <html lang="en">
-      <CommentsProvider>
-        <body className={inter.className}>
-          {children}
-        </body>
-      </CommentsProvider>
+
+      <UserProvider>
+        <CommentsProvider>
+          <body className={inter.className}>
+            {children}
+          </body>
+        </CommentsProvider>
+      </UserProvider>
 
     </html>
   )

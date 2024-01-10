@@ -3,6 +3,7 @@ import './landing.css'
 import LoginButton from '@/components/loginButton/LoginButton'
 import Image from 'next/image'
 import logo from '../assets/movieShareLogo.png'
+import Link from 'next/link'
 
 export default function landing() {
   return (
@@ -18,7 +19,10 @@ export default function landing() {
       </div>
       <div className='verticalContainer'>
         <Image className='logo' src={logo} alt="me" width="300" height="100" priority={true} />
-        <LoginButton />
+
+        {/* <LoginButton /> */}
+        <Link href="/api/auth/login">Login</Link>
+
       </div>
 
 

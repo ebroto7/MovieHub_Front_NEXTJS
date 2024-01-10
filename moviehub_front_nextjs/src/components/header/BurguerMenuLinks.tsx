@@ -38,7 +38,7 @@ const menuItems: MenuItem[] = [
     {
         name: "Logout",
         icon: <RiLogoutCircleLine />,
-        href: `/`
+        href: "/api/auth/logout"
     }
 ]
 
@@ -80,6 +80,7 @@ export default function BurguerMenuLinks() {
                         <Link href={href}> {icon} {name} </Link>
                     </MenuItem>
                 ))}
+                
             </Menu>
         </div>
     );
