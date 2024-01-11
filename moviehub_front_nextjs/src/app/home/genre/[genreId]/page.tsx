@@ -3,13 +3,16 @@ import { getMoviesByGenre } from "@/lib/movieApi"
 import styles from '../../home.module.css'
 import MovieCard from "@/components/movieCard/MovieCard"
 import { GenreType } from "@/types/genre.interface"
+import { notFound } from 'next/navigation'
+
 
 const GenreDetail = async ({ params }: { params: { genreId: string } }) => {
-
-
-
   const { genreId } = params
   const genre: GenreType = await getMoviesByGenre(genreId)
+
+  if (!genre) {
+    notFound()
+  }
 
   return (
     <main className={styles.section}>
