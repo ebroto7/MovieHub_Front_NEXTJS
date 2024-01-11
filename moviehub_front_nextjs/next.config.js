@@ -3,7 +3,7 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-              hostname: 'resizing.flixster.com'
+                hostname: 'resizing.flixster.com'
             },
             {
                 hostname: 'm.media-amazon.com'
@@ -13,13 +13,12 @@ const nextConfig = {
             },
         ]
     },
-        env: {
-            BASE_LOCALHOST_URL: 'http://localhost:3000/',
+    env: {
+        BASE_LOCALHOST_URL: 'http://localhost:3000/',
+        BASE_API_URL: 'http://localhost:8081'
+    },
 
-            BASE_API_URL: 'http://localhost:8081'
-        },
-      
-   
+
 }
 
 module.exports = nextConfig

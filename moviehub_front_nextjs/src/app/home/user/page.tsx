@@ -1,10 +1,17 @@
 import styles from '../home.module.css'
 import '../../../components/commentsContainer/comments.styles.css'
 import Link from 'next/link';
+import { notFound } from 'next/navigation'
+
 import { FaArrowRight } from 'react-icons/fa';
 
 
 const UserPage = () => {
+
+  // if (!user) {
+  //   notFound()
+  // }
+
     return (
     <>
        <h1>User page</h1>
