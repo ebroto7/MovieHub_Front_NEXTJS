@@ -4,7 +4,7 @@ import { CommentType } from '@/types/comments.interface'
 import { UserType } from '@/types/user.interface'
 import { Rating } from '@mui/material'
 import React, { FC } from 'react'
-import { formatDate } from '@/lib/utils'
+import { formatDate } from '@/lib/utils/utils'
 
 
 type Props = {
