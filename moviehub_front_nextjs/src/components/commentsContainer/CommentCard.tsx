@@ -1,4 +1,4 @@
-import { getUserById } from '@/lib/userApi'
+import { getUserById } from '@/lib/api/userApi/userApi'
 import './comments.styles.css'
 import { CommentType } from '@/types/comments.interface'
 import { UserType } from '@/types/user.interface'
@@ -13,11 +13,17 @@ type Props = {
 
 
 // const CommentCard: FC<Props> = async ({ comment }) => {
-const CommentCard: FC<Props> =  ({ comment }) => {
+const CommentCard: FC<Props> = async ({ comment }) => {
 
     const { title, description, ratting, createdAt, userId } = comment
 
-    // const user: UserType = await getUserById(userId)
+    const user: UserType = await getUserById(userId)
+    console.log("user api: ",user)
+    let userName: string = ""
+
+    if (user && user.id === userId) {
+         userName = user.name
+    }  
 
     return (
         <article className='glass'>
@@ -29,7 +35,7 @@ const CommentCard: FC<Props> =  ({ comment }) => {
                 </div>
                 <div className='rightText'>
                     {createdAt && <p> {formatDate(createdAt)} </p>}
-                    {/* {user && <p> {user.name}</p>} */}
+                    <p> {userName}</p>
                 </div>
 
             </section>

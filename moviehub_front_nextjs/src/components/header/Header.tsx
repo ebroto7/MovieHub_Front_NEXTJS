@@ -20,7 +20,7 @@ const HeaderBar = async () => {
   return (
     <header className='header'>
       <Link href="/home" >
-        <Image className="logo" src={logo} alt="me" width="300" height="100" priority={true} />
+        <Image className="logo" src={logo} alt="logo" width="300" height="100" priority={true} />
       </Link>
       {user
         ? <div style={{ display: 'flex', gap: '1rem' }}>

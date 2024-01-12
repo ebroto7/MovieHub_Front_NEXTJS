@@ -1,3 +1,4 @@
+import { CommentType } from "./comments.interface";
 import { MovieType } from "./movie.interface";
 
 export interface UserType {
@@ -5,6 +6,7 @@ export interface UserType {
     name: string,
     email: string,
     movies?: MovieType[],
+    comments?: CommentType[]
 
     createdAt?: Date,
     updatedAt?: Date

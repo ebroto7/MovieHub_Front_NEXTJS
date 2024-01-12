@@ -22,14 +22,7 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
 
     return (
         <main>
-            {/* {poster && <Image
-                alt={title}
-                src={poster}
-                fill
-                style={{
-                    objectFit: 'cover', // cover, contain, none
-                }}
-            />} */}
+          
 
             <article>
                 <div className='inlineContainer glass'>
