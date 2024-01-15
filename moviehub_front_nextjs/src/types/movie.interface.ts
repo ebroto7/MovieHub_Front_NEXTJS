@@ -23,5 +23,5 @@ export interface MovieType {
 }
 
 export interface MovieId {
-    id: string
+    id: string | number
   }
