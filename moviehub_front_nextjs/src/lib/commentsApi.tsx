@@ -36,7 +36,7 @@ export const postNewComment = async (comment: CommentType) => {
     title: title,
     description: description,
     ratting: ratting,
-    movieId: movieId
+    movieId: movieId,
   }
 
   console.log("postNewComment api call ", data)

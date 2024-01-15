@@ -1,5 +1,5 @@
 import { MovieType } from "@/types/movie.interface"
-import axios from 'axios';
+const axios = require('axios');
 
 const baseAPIUrl = process.env.BASE_API_URL
 
