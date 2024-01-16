@@ -9,7 +9,7 @@ import { FaArrowRight } from 'react-icons/fa';
 import { useUserContext } from '@/context/userContext';
 import { useEffect, useState } from 'react';
 import { UserType } from '@/types/user.interface';
-import UserMovieCardsContainer from '@/components/moveCardContainer/MovieCardsContainer';
+import UserMovieCardsContainer from '@/components/userMovieCardContainer/UserMovieCardsContainer';
 
 
 const UserPage = () => {
