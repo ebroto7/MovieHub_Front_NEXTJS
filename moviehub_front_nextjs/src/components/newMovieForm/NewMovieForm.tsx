@@ -74,17 +74,17 @@ const NewMovieForm = (props: Props) => {
                 title: title,
                 description: description,
                 genreId: genre,
-                year: year,
-                duration: duration,
+                year: year.toString(),
+                duration: duration.toString(),
                 director: director,
-                stars: [stars],
+                stars: stars,
                 userId: 7,
-                rated: rating,
+                rated: rating.toString(),
                 // poster: poster
             }
 
             console.log("movie form: ", newMovie)
-            // postNewMovie(newMovie)
+            postNewMovie(newMovie)
         }
 
     }
@@ -159,7 +159,7 @@ const NewMovieForm = (props: Props) => {
                         id="outlined-select-currency"
                         select
                         label="Genre"
-                        defaultValue={1}
+                        // defaultValue={}
                         // value={1}
 
                         onChange={ev => setGenre(ev.target.value)}

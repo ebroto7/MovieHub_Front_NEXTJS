@@ -43,11 +43,12 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
                         <Rating name="half-rating-read" value={Number(rated)} precision={0.5} readOnly />
                         {<div>
                             <h4>Director</h4>
-                            <p>Denzel Washington</p>
+                            {director ? <p>{director}</p> : <p>Not defined</p>}
                         </div>}
                         {<div>
                             <h4>Stars</h4>
-                            <p>Denzel Washington, Charlize Theron</p>                        </div>}
+                            {stars ? <p>{stars}</p> : <p>Not defined</p>}
+                    </div>}
                         {/* {director && <div>
                             <h4>Director</h4>
                             <p>{director}</p>

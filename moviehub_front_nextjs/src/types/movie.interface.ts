@@ -7,12 +7,12 @@ export interface MovieType {
 
     genreId: string | number,
     director?: string,
-    stars?: string[]
-    year?: number,
+    stars?: string
+    year?: number | string,
     poster?: string,
-    duration?: number,
+    duration?: number | string,
 
-    rated?: number,
+    rated?: string | number,
 
     comments?: CommentType[]
 

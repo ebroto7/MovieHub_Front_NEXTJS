@@ -48,14 +48,14 @@ export const postNewMovie = async (movie: MovieType ) => {
     const newMovie: MovieType = {
         title: title,
         description: description,
-        genreId: 7,
+        genreId: genreId,
         year: year,
-        // duration: duration,
-        // director: director,
-        // stars: stars,
-        // userId: 7,
+        duration: duration,
+        director: director,
+        stars: stars,
+        userId: 7,
         rated: rated,
-        // poster: poster
+        poster: poster
     }
 
     try {
