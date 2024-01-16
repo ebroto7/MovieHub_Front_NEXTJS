@@ -1,22 +1,23 @@
 'use client'
-import React from 'react'
+import React, { FC } from 'react'
 import './loginButton.css'
 
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 
-const LoginButton = () => {
-  const router = useRouter()
+type props = {
+  href: string
+}
+
+const LoginButton:FC<props> = ({href}) => {
 
     const handleLogin = () => {
-      router.push('/home')
       
         console.log("login button pressed")
     }
 
   return (
     <div>
-        <button className='button' onClick={handleLogin}>Login</button>
+        <Link className='button' href={href} onClick={handleLogin}>Login</Link>
     </div>
   )
 }

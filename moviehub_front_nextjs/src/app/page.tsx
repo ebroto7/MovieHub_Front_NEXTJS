@@ -20,8 +20,8 @@ export default function landing() {
       <div className='verticalContainer'>
         <Image className='logo' src={logo} alt="logo" width="300" height="100" priority={true} />
 
-        {/* <LoginButton /> */}
-        <Link href="/api/auth/login">Login</Link>
+        <LoginButton href="/api/auth/login"/>
+        {/* <Link href="/api/auth/login">Login</Link> */}
 
       </div>
 
