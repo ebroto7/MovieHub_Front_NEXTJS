@@ -18,7 +18,7 @@ import { useCommentsContext } from '@/context/commentsContext';
 import { CommentType } from '@/types/comments.interface';
 
 // import { postNewComment } from '@/lib/commentsApi';
-import { getMovieById } from '@/lib/movieApi';
+import { getMovieById } from '@/lib/api/movieApi/movieApi';
 import { MovieType } from '@/types/movie.interface';
 
 type Props = {

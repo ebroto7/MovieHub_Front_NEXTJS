@@ -5,8 +5,11 @@ import { notFound } from 'next/navigation'
 
 import { FaArrowRight } from 'react-icons/fa';
 
+import { useUserContext } from '@/context/userContext';
+
 
 const UserPage = () => {
+
 
   // if (!user) {
   //   notFound()

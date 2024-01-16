@@ -5,17 +5,20 @@ import { Box, Button, MenuItem, Rating, TextField } from '@mui/material'
 
 import { IoIosSend } from "react-icons/io";
 import { MovieType } from '@/types/movie.interface';
-import { postNewMovie } from '@/lib/movieApi';
+import { postNewMovie } from '@/lib/api/movieApi/movieApi';
 import { getAllGenres } from '@/lib/genreApi';
 import { GenreType } from '@/types/genre.interface';
+import { useUserContext } from '@/context/userContext';
 
 
-type Props = {}
-
-const NewMovieForm = (props: Props) => {
-    // let genreValues: GenreType[] = []
+const NewMovieForm = () => {
+    const {userLogged} = useUserContext()
+    const [userId, setUserId] = useState<number | string>(7)  // change by user logged
+    // const [userId, setUserId] = useState<number | string>(userLogged.id)  
     const [genreValues, setGenreValues] = useState<GenreType[]>([])
 
+
+    
     useEffect(() => {
         const loadData = async () => {
             try {
@@ -29,7 +32,7 @@ const NewMovieForm = (props: Props) => {
         loadData()
 
     }, [])
-    console.log("movieform genres", genreValues)
+
 
 
 
@@ -71,6 +74,7 @@ const NewMovieForm = (props: Props) => {
 
         if (isValidForm) {
             const newMovie: MovieType = {
+                
                 title: title,
                 description: description,
                 genreId: genre,
@@ -78,7 +82,7 @@ const NewMovieForm = (props: Props) => {
                 duration: duration.toString(),
                 director: director,
                 stars: stars,
-                userId: 7,
+                userId: userId,
                 rated: rating.toString(),
                 // poster: poster
             }

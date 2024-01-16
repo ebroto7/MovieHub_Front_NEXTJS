@@ -14,8 +14,6 @@ export const getAllMoviesIds = async () => {
         if (response.status !== 200) throw moviesId
         return moviesId
 
-        // return fetch(url)
-        //     .then(Response => Response.json())
     } catch (error) {
         console.log(">>>ERROR", error)
         return error
@@ -43,7 +41,7 @@ export const getMovieById = async (id: string | number) => {
 }
 
 export const getMoviesByGenre = async (id: string | number) => {
-    const movieUrl: string = `${baseAPIUrl}/genre/${id}`
+    const movieUrl: string = `${baseAPIUrl}/movie/genre/${id}`
     try {
         const response = await fetch(movieUrl)
         const movie = await response.json()
@@ -62,44 +60,41 @@ export const getMoviesByGenre = async (id: string | number) => {
         return error    }
 }
 
-export const postNewMovie = async (movie: MovieType) => {
+export const postNewMovie = async (movie: MovieType ) => {
 
-    const { title, description, rated, genreId, year, duration, userId, director, stars, poster } = movie
+    const { title, description, rated, genreId, year, duration, userId, director, stars, poster} = movie
 
     const url: string = `${baseAPIUrl}/movie/${userId}`
     console.log("create movie url", url)
-
+ 
 
     const newMovie: MovieType = {
         title: title,
         description: description,
-        genreId: 7,
+        genreId: genreId,
         year: year,
-        // duration: duration,
-        // director: director,
-        // stars: stars,
-        // userId: 7,
+        duration: duration,
+        director: director,
+        stars: stars,
+        userId: 7,
         rated: rated,
-        // poster: poster
+        poster: poster
     }
-    console.log("Movie uploaded: ", newMovie);
 
     try {
-        console.log("Movie uploaded: ", newMovie);
-
         const response = await axios.post(url, newMovie);
         if (response) {
-            console.log("Movie uploaded successfully!", response.data);
+          console.log("Movie uploaded successfully!", response.data);
         }
-    } catch (error) {
+      } catch (error) {
         // if (axios.isAxiosError(error) && error.response) {
         //   console.error(
         //     "Failed to upload comment:",
         //     error.response.data.message || "Unknown Error"
         //   );
         // } else {
-        console.error("Failed to upload comment:", error);
+          console.error("Failed to upload comment:", error);
         // }
-    }
+      }
 
 }

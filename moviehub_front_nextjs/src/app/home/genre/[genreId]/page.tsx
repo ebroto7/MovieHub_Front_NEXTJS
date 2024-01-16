@@ -1,26 +1,31 @@
-import { getMoviesByGenre } from "@/lib/movieApi"
+import { getMoviesByGenre } from "@/lib/api/movieApi/movieApi"
 
 import styles from '../../home.module.css'
 import MovieCard from "@/components/movieCard/MovieCard"
 import { GenreType } from "@/types/genre.interface"
 import { notFound } from 'next/navigation'
+import { MovieType } from "@/types/movie.interface"
+import { getGenreById } from "@/lib/genreApi"
 
 
 const GenreDetail = async ({ params }: { params: { genreId: string } }) => {
   const { genreId } = params
-  const genre: GenreType = await getMoviesByGenre(genreId)
+  const genre: GenreType = await getGenreById(genreId)
+  const movies: MovieType[] = await getMoviesByGenre(genreId)
+  console.log("genredetail", movies)
 
-  if (!genre) {
+  if (!movies) {
     notFound()
   }
 
   return (
     <main className={styles.section}>
       <h3 className={styles.genreTitle}>{genre.name} Movies</h3>
+
     
-      {genre.movies
+      {movies
         ? < section className={styles.section}>
-            {genre.movies.map((movie, index) => (
+            {movies.map((movie, index) => (
               <MovieCard key={index} movieId={movie.id!} />
             ))}
 

@@ -4,7 +4,7 @@ import React from 'react'
 
 import styles from './home.module.css'
 import GenreCollectionButtons from '@/components/genreCollectionButtons/GenreCollectionButtons'
-import { getAllMoviesIds } from '@/lib/movieApi'
+import { getAllMoviesIds } from '@/lib/api/movieApi/movieApi'
 import { MovieId } from '@/types/movie.interface'
 import { notFound } from 'next/navigation'
 

@@ -5,7 +5,7 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { getMovieById } from '@/lib/movieApi'
+import { getMovieById } from '@/lib/api/movieApi/movieApi'
 
 
 type Props = {

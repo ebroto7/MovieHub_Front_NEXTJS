@@ -6,6 +6,7 @@ import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 
 import { Inter } from 'next/font/google'
+import { UserLoggedProvider } from '@/context/userContext';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -23,11 +24,13 @@ export default function MainLayout({
     <html lang="en">
 
       <UserProvider>
+        <UserLoggedProvider>
         <CommentsProvider>
           <body className={inter.className}>
             {children}
           </body>
         </CommentsProvider>
+        </UserLoggedProvider>
       </UserProvider>
 
     </html>

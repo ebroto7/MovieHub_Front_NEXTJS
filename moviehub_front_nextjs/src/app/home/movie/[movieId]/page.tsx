@@ -2,8 +2,7 @@
 import { notFound } from 'next/navigation'
 
 import { MovieType } from '@/types/movie.interface'
-import { getMovieById } from '@/lib/movieApi'
-
+import { getMovieById } from '@/lib/api/movieApi/movieApi'
 import styles from '../../home.module.css'
 import MovieDetail from '@/components/movieDetail/MovieDetail'
 import CommentsContainer from '@/components/commentsContainer/commentsContainer'
