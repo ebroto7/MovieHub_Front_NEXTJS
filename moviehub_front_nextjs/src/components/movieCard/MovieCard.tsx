@@ -22,7 +22,7 @@ const MovieCard: FC<Props> = async ({ movieId }) => {
             <div className="movieCardContainer" >
                 {movie.poster != null  && 
                 <Image
-                    src={movie.poster!}
+                    src={movie.poster}
                     alt={movie.title}
                     width={200}
                     height={200}

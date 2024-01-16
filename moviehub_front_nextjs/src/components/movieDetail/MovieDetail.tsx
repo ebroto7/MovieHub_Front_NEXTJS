@@ -18,11 +18,11 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
     const { title, description, genreId, director, stars, year, poster, duration, rated, userId } = movie
 
     const genre: GenreType = await getGenreById(genreId)
-
+    console.log("moviedetail image url", poster)
 
     return (
         <main>
-          
+
 
             <article>
                 <div className='inlineContainer glass'>
@@ -48,15 +48,8 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
                         {<div>
                             <h4>Stars</h4>
                             {stars ? <p>{stars}</p> : <p>Not defined</p>}
-                    </div>}
-                        {/* {director && <div>
-                            <h4>Director</h4>
-                            <p>{director}</p>
                         </div>}
-                        {stars && <div>
-                            <h4>Stars</h4>
-                            <p>{stars}</p>
-                        </div>} */}
+
                     </section>
                 </div>
                 <hr className="rounded" />
