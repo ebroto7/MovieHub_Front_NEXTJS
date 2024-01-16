@@ -1,16 +1,37 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import styles from '../../app/home/home.module.css'
-import { Box, Button, Rating, TextField } from '@mui/material'
+import { Box, Button, MenuItem, Rating, TextField } from '@mui/material'
 
 import { IoIosSend } from "react-icons/io";
 import { MovieType } from '@/types/movie.interface';
 import { postNewMovie } from '@/lib/movieApi';
+import { getAllGenres } from '@/lib/genreApi';
+import { GenreType } from '@/types/genre.interface';
 
 
 type Props = {}
 
 const NewMovieForm = (props: Props) => {
+    // let genreValues: GenreType[] = []
+    const [genreValues, setGenreValues] = useState<GenreType[]>([])
+
+    useEffect(() => {
+        const loadData = async () => {
+            try {
+                const genres: GenreType[] = await getAllGenres()
+                setGenreValues(genres)
+
+            } catch (error) {
+                console.log(">>>>", error);
+            }
+        }
+        loadData()
+
+    }, [])
+    console.log("movieform genres", genreValues)
+
+
 
     const [title, setTitle] = useState<string>("")
     const [isValidTitle, setIsValidTitle] = useState<boolean>(false)
@@ -21,7 +42,8 @@ const NewMovieForm = (props: Props) => {
     const [isValidDescriptionMessage, setIsValidDescriptionMessage] = useState<string>("")
 
     const [genre, setGenre] = useState<number | string>(0)
-    // validate genre
+    const [isValidGenre, setIsValidGenre] = useState<boolean>(false)
+    const [isValidGenreMessage, setIsValidGenreMessage] = useState<string>("")
 
     const [year, setYear] = useState<number>(0)
     const [isValidYear, setIsValidYear] = useState<boolean>(false)
@@ -41,7 +63,7 @@ const NewMovieForm = (props: Props) => {
 
     useEffect(() => {
         validateForm()
-    }, [title, description, year, duration])
+    }, [title, description, year, duration, genre])
 
     const HandleSubmit = (ev: React.FormEvent) => {
         ev.preventDefault()
@@ -62,8 +84,7 @@ const NewMovieForm = (props: Props) => {
             }
 
             console.log("movie form: ", newMovie)
-            // createMovie(newMovie)
-            postNewMovie(newMovie)
+            // postNewMovie(newMovie)
         }
 
     }
@@ -105,6 +126,14 @@ const NewMovieForm = (props: Props) => {
         } else {
             setIsValidDuration(true)
         }
+        if (genre == 0) {
+            setIsValidGenreMessage("You must select any genre.")
+            setIsValidGenre(false)
+            validate = false
+
+        } else {
+            setIsValidGenre(true)
+        }
         console.log("validate form function ", validate)
 
         setIsValidForm(validate)
@@ -126,23 +155,25 @@ const NewMovieForm = (props: Props) => {
                     {!isValidTitle && <h6 className={styles.errorMessage}>{isValidTitleMessage}</h6>}
 
 
-                    {/* <TextField
-                    id="outlined-select-currency"
-                    select
-                    label="Genre"
-                    defaultValue={1}
-                    value={1}
+                    <TextField
+                        id="outlined-select-currency"
+                        select
+                        label="Genre"
+                        defaultValue={1}
+                        // value={1}
 
-                    onChange={ev => setGenre(ev.target.value)}
+                        onChange={ev => setGenre(ev.target.value)}
 
-                    required
-                >
-                    {genreItems().map((genre) => (
-                        <MenuItem key={genre.value} value={genre.value}>
-                            {genre.label}
-                        </MenuItem>
-                    ))}
-                </TextField> */}
+                        required
+                    >
+                        {genreValues.map((genre) => (
+                            <MenuItem key={genre.id} value={genre.id}>
+                                {genre.name}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                    {!isValidGenre && <h6 className={styles.errorMessage}>{isValidGenreMessage}</h6>}
+
                     <br />
                     <TextField id="year" label="year" variant="standard" type="number" required
                         onChange={ev => setYear(Number(ev.target.value))}
@@ -189,7 +220,7 @@ const NewMovieForm = (props: Props) => {
                         }} />
                 </Box>
                 {isValidForm ?
-                    <Button  variant="outlined" endIcon={<IoIosSend />} type="submit">Submit</Button>
+                    <Button variant="outlined" endIcon={<IoIosSend />} type="submit">Submit</Button>
                     : <Button variant="outlined" endIcon={<IoIosSend />} type="submit" disabled>Submit</Button>}
 
             </form>

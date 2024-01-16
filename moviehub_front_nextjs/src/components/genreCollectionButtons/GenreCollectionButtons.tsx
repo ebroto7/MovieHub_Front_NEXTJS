@@ -13,6 +13,7 @@ import { getAllGenres } from '@/lib/genreApi'
 const GenreCollectionButtons = async () => {
 
     const genres: GenreType[] = await getAllGenres()
+    console.log(">>> api genres object: ", genres)
 
     return (
         <>
