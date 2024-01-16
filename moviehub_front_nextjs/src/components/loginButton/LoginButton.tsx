@@ -10,14 +10,11 @@ type props = {
 
 const LoginButton:FC<props> = ({href}) => {
 
-    const handleLogin = () => {
-      
-        console.log("login button pressed")
-    }
+
 
   return (
     <div>
-        <Link className='button' href={href} onClick={handleLogin}>Login</Link>
+        <Link className='button' href={href} >Login</Link>
     </div>
   )
 }

@@ -12,7 +12,6 @@ const GenreDetail = async ({ params }: { params: { genreId: string } }) => {
   const { genreId } = params
   const genre: GenreType = await getGenreById(genreId)
   const movies: MovieType[] = await getMoviesByGenre(genreId)
-  console.log("genredetail", movies)
 
   if (!movies) {
     notFound()

@@ -57,8 +57,31 @@ export const getMoviesByGenre = async (id: string | number) => {
 
     } catch (error) {
         console.log(">>>ERROR", error)
-        return error    }
+        return error    
+    }
 }
+
+export const getMoviesByUserId = async (userId: string | number) => {
+    const movieUrl: string = `${baseAPIUrl}/movie/user/${userId}`
+    console.log("getMoviesByUserId url", movieUrl)
+    try {
+        const response = await fetch(movieUrl)
+        const movies = await response.json()
+        if (response.status === 404) throw new Error("Request not found")
+        if (response.status === 500) throw new Error("Server error")
+        if (response.status !== 200) throw movies
+        return movies
+
+    } catch (error) {
+        console.log(">>>ERROR", error)
+        return error    
+    }
+}
+
+
+
+
+
 
 export const postNewMovie = async (movie: MovieType ) => {
 
