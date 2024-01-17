@@ -7,11 +7,15 @@ import GenreCollectionButtons from '@/components/genreCollectionButtons/GenreCol
 import { getAllMoviesIds } from '@/lib/api/movieApi/movieApi'
 import { MovieId } from '@/types/movie.interface'
 import { notFound } from 'next/navigation'
+import { GenreType } from '@/types/genre.interface'
+import { getAllGenres } from '@/lib/genreApi'
 
 
 const HomePage = async () => {
 
   const movieIds: MovieId[] = await getAllMoviesIds()
+  const genres: GenreType[] = await getAllGenres()
+
 
   if (!movieIds) {
     notFound()
@@ -20,8 +24,8 @@ const HomePage = async () => {
   return (
     <>
       <main className={styles.main}>
-        <aside className={styles.aside}>SideBar
-          <GenreCollectionButtons />
+        <aside className={styles.aside}>
+          <GenreCollectionButtons genres={genres}/>
 
         </aside>
         <section className={styles.section}>
