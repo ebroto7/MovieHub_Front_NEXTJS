@@ -25,6 +25,7 @@ describe("genre collection buttons test", () => {
 
         expect(screen.getByText("Genres")).toBeDefined()
         expect(screen.getByText("No genres have been downloaded")).toBeDefined()
+        expect(screen.queryByText(genresMock[0].name)).toBeNull()
 
     })
 

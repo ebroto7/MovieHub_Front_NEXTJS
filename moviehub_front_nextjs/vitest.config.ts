@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitest/config'
 import react from '@vitejs/plugin-react'
 import { resolve } from 'path'
- 
+
 export default defineConfig({
   plugins: [react()],
   test: {
@@ -10,7 +10,7 @@ export default defineConfig({
       provider: 'v8'
     },
   },
-  // resolve: {
-  //  alias: [{find: "@", replacement: resolve(__dirname, "./")}]
-  // }
+  resolve: {
+    alias: [{ find: "@", replacement: resolve(__dirname, "./src") }]
+  }
 })

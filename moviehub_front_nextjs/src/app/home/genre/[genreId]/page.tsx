@@ -13,9 +13,9 @@ const GenreDetail = async ({ params }: { params: { genreId: string } }) => {
   const genre: GenreType = await getGenreById(genreId)
   const movies: MovieType[] = await getMoviesByGenre(genreId)
 
-  if (!movies) {
-    notFound()
-  }
+  if (!genre) notFound()
+  if (!movies) notFound()
+
 
   return (
     <main className={styles.section}>

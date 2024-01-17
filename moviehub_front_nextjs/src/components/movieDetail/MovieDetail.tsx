@@ -18,7 +18,6 @@ const MovieDetail: FC<Props> = async ({ movie }) => {
     const { title, description, genreId, director, stars, year, poster, duration, rated, userId } = movie
 
     const genre: GenreType = await getGenreById(genreId)
-    console.log("moviedetail image url", poster)
 
     return (
         <main>

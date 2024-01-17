@@ -1,16 +1,18 @@
 import { CommentType } from "./comments.interface"
+import { GenreType } from "./genre.interface"
 
 export interface MovieType {
     id?: number | string,
     title: string,
     description: string,
 
-    genreId: string | number,
     director?: string,
     stars?: string
     year?: number | string,
     poster?: string,
     duration?: number | string,
+    genreId: string | number,
+    Genre: GenreType
 
     rated?: string | number,
 

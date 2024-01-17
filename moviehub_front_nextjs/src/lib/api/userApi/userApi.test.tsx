@@ -2,9 +2,6 @@ import { getUserById } from './userApi'
 import { UserType } from '@/types/user.interface'
 
 import { describe, expect, test } from 'vitest'
-import { render, screen } from '@testing-library/react'
-import { it } from 'node:test'
-import { error } from 'console'
 
 const userMock: UserType = {
     id: 1,
@@ -23,7 +20,7 @@ describe("get user from api tests", () => {
     test("should call correct function", () => {
 
         global.fetch = () =>
-            Promise.resolve({
+            Promise.resolve<any>({
                 status: 200,
                 json: () => Promise.resolve(userMock)
             })
@@ -46,7 +43,7 @@ describe("get user from api tests", () => {
 
     test("should call server error", () => {
         global.fetch = () =>
-        Promise.resolve({
+        Promise.resolve<any>({
             status: 500,
             json: () => Promise.resolve()
         })

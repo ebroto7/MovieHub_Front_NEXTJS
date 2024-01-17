@@ -18,12 +18,11 @@ const CommentCard: FC<Props> = async ({ comment }) => {
     const { title, description, ratting, createdAt, userId } = comment
 
     const user: UserType = await getUserById(userId)
-    console.log("user api: ",user)
-    let userName: string = ""
+    // let userName: string = ""
 
-    if (user && user.id === userId) {
-         userName = user.name
-    }  
+    // if (user && user.id === userId) {
+    //      userName = user.name
+    // }  
 
     return (
         <article className='glass'>
@@ -35,7 +34,7 @@ const CommentCard: FC<Props> = async ({ comment }) => {
                 </div>
                 <div className='rightText'>
                     {createdAt && <p> {formatDate(createdAt)} </p>}
-                    <p> {userName}</p>
+                    <p> {user.name}</p>
                 </div>
 
             </section>

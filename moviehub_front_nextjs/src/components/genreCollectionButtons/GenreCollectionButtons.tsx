@@ -20,7 +20,6 @@ const GenreCollectionButtons: FC<props> = ({ genres }) => {
             <h2>Genres</h2>
             {(genres != null && genres.length > 0)
                 ? <ul style={{ display: 'flex', flexDirection: 'column' }}>
-                    list
                     {genres.map(({ id, name }) => (
                         <li key={id} className='btn'>
                             <span className='circle'>

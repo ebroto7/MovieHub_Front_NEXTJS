@@ -15,7 +15,7 @@ import UserMovieCardsContainer from '@/components/userMovieCardContainer/UserMov
 const UserPage = () => {
 
   const { userLogged } = useUserContext()
-
+  if (!userLogged) notFound()
   return (
     <>
       <main className={styles.verticalContainer}>
@@ -29,7 +29,7 @@ const UserPage = () => {
         </Link>
 
         {/* // user movies component */}
-        {userLogged && <UserMovieCardsContainer userId={userLogged.id}/>}
+        {userLogged && <UserMovieCardsContainer userId={userLogged.id} />}
 
       </main>
     </>
