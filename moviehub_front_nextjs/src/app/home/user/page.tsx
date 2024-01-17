@@ -20,6 +20,7 @@ const UserPage = () => {
     <>
       <main className={styles.verticalContainer}>
         <h1 className={styles.movieTitle}> {userLogged?.name} page </h1>
+
         <Link href={'user/newMovie'}>
           <button className='addCommentButton'  >
             <FaArrowRight className="icon" />

@@ -25,6 +25,8 @@ const HomePage = async () => {
 
         </aside>
         <section className={styles.section}>
+        <h1>Home</h1>
+
           {movieIds.map(({ id }, index) => (
             <MovieCard key={index} movieId={id} />
           ))}
