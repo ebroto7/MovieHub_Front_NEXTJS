@@ -1,4 +1,5 @@
 
+import Link from 'next/link'
 import styles from './home.module.css'
 import HeaderBar from '@/components/header/Header'
 
@@ -20,7 +21,9 @@ export default function HomeLayout({
       <main className={styles.main}>
         {children}
       </main>
-      <footer className={styles.footer}>Footer</footer>
+      <footer className={styles.footer}>Made by: 
+      <Link href={'/home/aboutUs'}>Enric Broto</Link>
+      All rights reserved ©</footer>
     </div>
   )
 }

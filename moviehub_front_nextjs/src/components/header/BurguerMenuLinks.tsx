@@ -28,7 +28,7 @@ const menuItems: MenuItem[] = [
     {
         name: "About us",
         icon: <BsExclamationCircle />,
-        href: `/home/AboutUs`
+        href: `/home/aboutUs`
     },
     {
         name: "Home",
