@@ -1,4 +1,4 @@
-import styles from '../home.module.css'
+import styles from './home.module.css'
 
 import Link from 'next/link'
 
@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className={styles.glass}>
         <div className={styles.halfContainer}>
           <h2>Not Found</h2>
-          <p>Could not find this genre</p>
+          <p>Could not find this page</p>
           <Link className={styles.mainButton} href="/home">Return Home</Link>
         </div>
       </div>

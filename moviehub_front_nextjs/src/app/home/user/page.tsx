@@ -15,6 +15,7 @@ import UserMovieCardsContainer from '@/components/userMovieCardContainer/UserMov
 const UserPage = () => {
 
   const { userLogged } = useUserContext()
+  if (!userLogged) notFound()
 
   return (
     <>
