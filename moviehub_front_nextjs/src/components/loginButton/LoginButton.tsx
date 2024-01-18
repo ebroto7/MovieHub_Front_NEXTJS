@@ -13,7 +13,7 @@ const LoginButton:FC<props> = ({href}) => {
 
 
   return (
-    <div>
+    <div className='centerDiv'>
         <Link className='button' href={href} >Login</Link>
     </div>
   )
