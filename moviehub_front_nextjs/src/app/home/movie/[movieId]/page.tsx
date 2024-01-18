@@ -11,7 +11,9 @@ const MovieDetailPage = async ({ params }: { params: { movieId: string } }) => {
 
    const { movieId } = params
    const movie: MovieType = await getMovieById(movieId)
-  
+
+   if (!movie) notFound()
+
    return (
       <main className={styles.verticalContainer}>
          <h1 className={styles.movieTitle}> {movie.title} </h1>

@@ -16,11 +16,11 @@ const UserPage = () => {
 
   const { userLogged } = useUserContext()
   if (!userLogged) notFound()
-
   return (
     <>
       <main className={styles.verticalContainer}>
         <h1 className={styles.movieTitle}> {userLogged?.name} page </h1>
+
         <Link href={'user/newMovie'}>
           <button className='addCommentButton'  >
             <FaArrowRight className="icon" />
@@ -29,7 +29,7 @@ const UserPage = () => {
         </Link>
 
         {/* // user movies component */}
-        {userLogged && <UserMovieCardsContainer userId={userLogged.id}/>}
+        {userLogged && <UserMovieCardsContainer userId={userLogged.id} />}
 
       </main>
     </>

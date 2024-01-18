@@ -12,8 +12,9 @@ type Props = {
     movieId: string | number
 }
 
-const MovieCard: FC<Props> = async ({ movieId }) => {
+const MovieCard: FC<Props> = async (props) => {
     const baseUrl = process.env.BASE_LOCALHOST_URL
+    const {movieId} = props
 
     const movie: MovieType = await getMovieById(movieId)
 
@@ -31,7 +32,7 @@ const MovieCard: FC<Props> = async ({ movieId }) => {
                     {<h1>{`${movie.title} (${movie.year})`}</h1>}
                   
                     <p>{movie.description}</p>
-                    <Link href={`${baseUrl}/home/movie/${movie.id}`}> Read More </Link>
+                    <Link href={`/home/movie/${movie.id}`}> Read More </Link>
                 </div>
             </div>
         </>
