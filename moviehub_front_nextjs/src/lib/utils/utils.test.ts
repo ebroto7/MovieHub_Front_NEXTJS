@@ -8,7 +8,5 @@ describe('Utils test', () => {
 
         expect(formatDate(mockDate)).toBe( '1995-12-17')
     })
-
-  
 })
 

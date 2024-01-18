@@ -11,8 +11,3 @@ export const formatDate = (date: Date) => {
 
     return [year, month, day].join('-') ;
 }
-let mockDate = new Date("December 17, 1995 03:24:00");
-
-const date = formatDate(mockDate)
-console.log("new",new Date())
-console.log("format date ", date)

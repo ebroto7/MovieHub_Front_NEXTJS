@@ -14,12 +14,6 @@ type userContextProps = {
     createOrLoginUser: () => void,
     userLogged: UserType | null
 
-    // userLogued: UserType
-    // commentsList: CommentType[],
-    // getCommentsByMovieId: (id: string | number) => void,
-    // postNewComment: (comment: CommentType ) => void,
-
-    // isError: boolean
 }
 
 
@@ -57,7 +51,6 @@ const UserLoggedProvider: FC<PropsWithChildren> = ({ children }) => {
                 if (axios.isAxiosError(error) && error) {
                     console.error(
                       "Failed to log user:",
-                      // error.response.data.message || "Unknown Error"
                     );
                   } else {
                     console.error("Failed to log user:", error);
@@ -67,14 +60,10 @@ const UserLoggedProvider: FC<PropsWithChildren> = ({ children }) => {
 
     }
 
-
-
     return (
         <userContext.Provider
             value={{
                 createOrLoginUser, userLogged
-
-                // user context methods & const/var
             }}
         >
             {children}

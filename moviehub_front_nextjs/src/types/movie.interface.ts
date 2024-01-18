@@ -12,7 +12,7 @@ export interface MovieType {
     poster?: string,
     duration?: number | string,
     genreId: string | number,
-    Genre: GenreType
+    Genre?: GenreType
 
     rated?: string | number,
 

@@ -1,7 +1,5 @@
 
-
-
-# MOVIE HUB 
+# MOVIE HUB FRONTEND WITH NEXT.JS
 
 This project was based on taking the MovieHub frontend made with react and rebuilding it with Next.js.
 
@@ -14,7 +12,6 @@ This project was based on taking the MovieHub frontend made with react and rebui
 - [Usage](#usage)
 - [Technologies and Concepts](#technologies-and-concepts)
 - [Conclusion](#conclusion)
-- [Preview](#preview)
 
 ## Introduction
 
